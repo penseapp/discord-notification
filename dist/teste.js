@@ -6,7 +6,7 @@ exports.discordNotification = new DiscordNotification_1.DiscordNotification('MS-
 // em outros arquivo
 exports.discordNotification
     .sucessfulMessage()
-    .addFooter('iheqwiu hewqiu ehqw hqwiue hwqiu ehqwiuehqwi lhasdkjqwbeh jabdhjqwbe qwe bqwi dwqui eqwiue wq ie')
+    .addFooter('iheqwiu hewqiu ehqw hqwiue hwqiu ehqwiuehqwi lhasdkjqwbeh jabdhjqwbe qwe bqwi dwqui eqwiue wq')
     .addTitle('OMAE NO RO, SHINDAIRU')
     .addDescription('NANIANIANIANIA')
     .addField({ name: 'Nome', value: 'gritzkosan' })
