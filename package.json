@@ -1,0 +1,28 @@
+{
+  "name": "discord-notification",
+  "version": "1.0.0",
+  "description": "A abstract to send notification on discord",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "deploy": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ockpay/discord-notification.git"
+  },
+  "keywords": [
+    "discord",
+    "notification"
+  ],
+  "author": "Joao Mantovani",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^2.7.2"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@ockpay"
+  }
+}
