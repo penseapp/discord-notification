@@ -1,1 +1,1 @@
-export {sayHello, sayGoodbye} from './hello-world'
+export { DiscordNotification } from './DiscordNotification'

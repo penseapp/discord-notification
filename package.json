@@ -1,7 +1,7 @@
 {
   "name": "discord-notification",
   "version": "1.0.0",
-  "description": "A abstract to send notification on discord",
+  "description": "An abstract implementation to send notification on discord",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -24,5 +24,10 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@ockpay"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "g": "^2.0.1",
+    "tsc": "^1.20150623.0"
   }
 }
