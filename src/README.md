@@ -22,9 +22,10 @@ discordNotification
   .sucessfulMessage()
   .addTitle('Novo pedido #666')
   .addDescription('Blablablabla')
-  .addField({name: 'Nome', value: 'Higorokun'})
+  .addField({name: 'Nome', value: 'Higorokun', inline: false }) //breakline
   .addField({name: 'Valor', value: 'R$ 10'})
   .addField({ name: 'Estabelecimento', value: 'Pao de queijo e cia' })
+  .addFooter('bla bla bla') // Small text at the end of discord notification
   .sendMessage()
 ```
 
