@@ -85,6 +85,23 @@ discordNotification
   .sendMessage()
 ``` 
 
+Send formatted Stack error message
+
+```js
+try {
+  throw new Error('My error')
+} catch (error) {
+  const e: Error = error as Error
+  discordNotification
+    .errorMessage()
+    .addTitle(e.message)
+    .addContent('```json'+ '\n' + JSON.stringify({
+      "teste": "teste"
+      }) +'```')
+  .sendMessage()
+}
+``
+
 Other examples
 
 ```js
