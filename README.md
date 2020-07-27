@@ -58,7 +58,7 @@ discordNotification
   .sendMessage()
 ```
 
-you can use @here or @everyone if is something critical using `addContent`
+#### you can use @here or @everyone if is something critical using `addContent`
 
 ```js
 discordNotification
@@ -74,7 +74,7 @@ discordNotification
   .sendMessage()
 ```
 
-Send formatted JSON
+#### Send formatted JSON
 
 ```js
 
@@ -85,7 +85,7 @@ discordNotification
   .sendMessage()
 ``` 
 
-Send formatted Stack error message
+#### Send formatted Stack error message
 
 ```js
 try {
@@ -100,9 +100,9 @@ try {
       }) +'```')
   .sendMessage()
 }
-``
+```
 
-Other examples
+#### Other examples
 
 ```js
 discordNotification
