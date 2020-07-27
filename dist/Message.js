@@ -87,6 +87,9 @@ var Message = /** @class */ (function () {
             return {
                 content: _this.content,
                 username: _this.username,
+                allowed_mentions: {
+                    "parse": ["everyone"]
+                },
                 avatar_url: _this.avatar_url,
                 file: _this.file,
                 embeds: [
@@ -94,6 +97,7 @@ var Message = /** @class */ (function () {
                         author: {
                             name: _this.microserviceName,
                         },
+                        footer: _this.embeds.footer,
                         description: _this.embeds.description,
                         title: _this.embeds.title,
                         color: _this.embeds.color,
@@ -108,12 +112,8 @@ var Message = /** @class */ (function () {
         this.sendMessage = function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 axios_1.default.post(this.webhook, this.buildPayload())
-                    .then(function (response) {
-                    console.log(response);
-                })
-                    .catch(function (error) {
-                    console.log(error);
-                });
+                    .then(function () { })
+                    .catch(function (err) { });
                 return [2 /*return*/];
             });
         }); };

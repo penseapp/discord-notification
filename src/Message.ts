@@ -78,6 +78,9 @@ export abstract class Message implements MessageInterface {
     return {
       content: this.content,
       username: this.username,
+      allowed_mentions: {
+        "parse": ["everyone"]
+      },
       avatar_url: this.avatar_url,
       file: this.file,
       embeds: [
@@ -85,6 +88,7 @@ export abstract class Message implements MessageInterface {
           author: {
             name: this.microserviceName,
           },
+          footer: this.embeds.footer,
           description: this.embeds.description,
           title: this.embeds.title,
           color: this.embeds.color,
@@ -98,11 +102,7 @@ export abstract class Message implements MessageInterface {
 
   sendMessage = async () => {
     axios.post(this.webhook, this.buildPayload())
-    .then(function (response) {
-      console.log(response)
-    })
-    .catch(function (error) {
-      console.log(error)
-    })
+      .then(() => {})
+      .catch((err) => {})
   }
 }

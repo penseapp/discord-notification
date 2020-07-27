@@ -1,16 +1,18 @@
 import { DiscordNotification } from "./DiscordNotification";
-import { Field } from "./Field";
 
 // bootstrap da aplicação
-export const discordNotification = new DiscordNotification('MS-TEST', 'https://discordapp.com/api/webhooks/717408724918075412/FdZJOlH-T1yDre9bo6ar0UCpATo-9-YqomiID1I0HiXxG4tF6brZqNbqLQDB5mD7Rxr6')
+export const discordNotification = new DiscordNotification('MS-TEST', 'https://discordapp.com/api/webhooks/734987387792392273/HKuDhLh3KVb7uxlcsvkrv4iiFx7QVAM7hLLk1L9jm1M-3IYYnjc6JzcJuO4_aGV2Ebig')
 
-// em outros arquivo
-discordNotification
-  .sucessfulMessage()
-  .addFooter('iheqwiu hewqiu ehqw hqwiue hwqiu ehqwiuehqwi lhasdkjqwbeh jabdhjqwbe qwe bqwi dwqui eqwiue wq')
-  .addTitle('OMAE NO RO, SHINDAIRU')
-  .addDescription('NANIANIANIANIA')
-  .addField({name: 'Nome', value: 'gritzkosan'})
-  .addField({name: 'Valor', value: 'R$ 10'})
-  .addField({ name: 'Estabelecimento', value: 'OMae' })
+try {
+  throw new Error('Meu erro bla')
+} catch (error) {
+  const e: Error = error as Error
+  discordNotification
+    .errorMessage()
+    // .addFooter(e.stack || 'Sem stack de erro')
+    .addTitle(e.message)
+    .addContent('```json'+ '\n' + JSON.stringify({
+      "teste": "teste"
+      }) +'```')
   .sendMessage()
+}

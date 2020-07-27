@@ -56,7 +56,38 @@ discordNotification
   .addField({name: 'Valor', value: 'R$ 10'})
   .addField({ name: 'Estabelecimento', value: 'Pao de queijo e cia' })
   .sendMessage()
+```
 
+you can use @here or @everyone if is something critical using `addContent`
+
+```js
+discordNotification
+  .errorMessage()
+  .addTitle('Error bla')
+  .addContent('@everyone')
+  .sendMessage()
+
+discordNotification
+  .errorMessage()
+  .addTitle('Error bla')
+  .addContent('@here looks here!')
+  .sendMessage()
+```
+
+Send formatted JSON
+
+```js
+
+discordNotification
+  .errorMessage()
+  .addTitle('Error bla')
+  .addContent('```json'+ '\n' + JSON.stringify({ "myjson": "bla" }) +'```')
+  .sendMessage()
+``` 
+
+Other examples
+
+```js
 discordNotification
   .sucessfulMessage()
   .addTitle('Testing color green (success)')
