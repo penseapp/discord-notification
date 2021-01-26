@@ -30,7 +30,7 @@ export declare abstract class Message implements MessageInterface {
         content: string | undefined;
         username: string | undefined;
         allowed_mentions: {
-            "parse": string[];
+            parse: string[];
         };
         avatar_url: string | undefined;
         file: string | undefined;

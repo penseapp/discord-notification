@@ -4,3 +4,4 @@ var Author = /** @class */ (function () {
     }
     return Author;
 }());
+//# sourceMappingURL=Author.js.map

@@ -1,9 +1,19 @@
 import { DiscordNotification } from "./DiscordNotification";
 
 // bootstrap da aplicação
-export const discordNotification = new DiscordNotification('MS-TEST', 'https://discordapp.com/api/webhooks/734987387792392273/HKuDhLh3KVb7uxlcsvkrv4iiFx7QVAM7hLLk1L9jm1M-3IYYnjc6JzcJuO4_aGV2Ebig')
+export const discordNotification = new DiscordNotification('MS-TEST', 'https://discord.com/api/webhooks/803700867030974504/-mdVYyS7PYiiOtpLbMrMdutlcUYyarCZ4SnkxiLAJtv6JV134i9zq5MfiQerqliqP_ai')
 
 try {
+  discordNotification
+    .sucessfulMessage()
+    .addFooter('qeqiheiqwuehqw')
+    .addTitle('woeqeuh')
+    .addField({ name: 'higor bocó', value: 'miguel teta' })
+    .addTitle('qwiuehqiueqhwe')
+    .addContent('```json'+ '\n' + JSON.stringify({
+      "teste": "teste"
+      }) +'```')
+  .sendMessage()
   throw new Error('Meu erro bla')
 } catch (error) {
   const e: Error = error as Error

@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -38,6 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Message = void 0;
 var Embed_1 = require("./Embed");
 var Field_1 = require("./Field");
 var Footer_1 = require("./Footer");
@@ -113,7 +115,7 @@ var Message = /** @class */ (function () {
             return __generator(this, function (_a) {
                 axios_1.default.post(this.webhook, this.buildPayload())
                     .then(function () { })
-                    .catch(function (err) { });
+                    .catch(function () { });
                 return [2 /*return*/];
             });
         }); };
@@ -124,3 +126,4 @@ var Message = /** @class */ (function () {
     return Message;
 }());
 exports.Message = Message;
+//# sourceMappingURL=Message.js.map

@@ -1,4 +1,4 @@
-import { Embed, EmbedInterface } from "./Embed"
+import { Embed } from "./Embed"
 import { Field, FieldInterface } from "./Field"
 import { Footer } from "./Footer"
 import axios from 'axios'
@@ -103,6 +103,6 @@ export abstract class Message implements MessageInterface {
   sendMessage = async () => {
     axios.post(this.webhook, this.buildPayload())
       .then(() => {})
-      .catch((err) => {})
+      .catch(() => {})
   }
 }

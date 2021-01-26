@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DiscordNotification = void 0;
 var MessageVariants_1 = require("./MessageVariants");
 var DiscordNotification = /** @class */ (function () {
     function DiscordNotification(microserviceName, webhook) {
@@ -34,3 +35,4 @@ var DiscordNotification = /** @class */ (function () {
     return DiscordNotification;
 }());
 exports.DiscordNotification = DiscordNotification;
+//# sourceMappingURL=DiscordNotification.js.map

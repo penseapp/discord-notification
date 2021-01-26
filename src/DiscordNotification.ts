@@ -1,4 +1,3 @@
-import { Message } from "./Message";
 import { SuccessfulMessage, ErrorMessage, WarningMessage, InfoMessage, NoColorMessage } from "./MessageVariants";
 
 export class DiscordNotification {
