@@ -90,7 +90,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist-folder
-          path: dist/**/*
+          path: .
           if-no-files-found: error
 
   publish:
@@ -104,7 +104,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dist-folder
-          path: dist
+          path: .
       - id: release
         name: Release tag
         uses: rymndhng/release-on-push-action@master
