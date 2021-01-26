@@ -1,5 +1,5 @@
 {
-  "name": "discord-notification",
+  "name": "@penseapp/discord-notification",
   "version": "0.0.1",
   "description": "An abstract implementation to send notification on discord",
   "main": "dist/index.js",
@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ockpay/discord-notification.git"
+    "url": "git+https://github.com/penseapp/discord-notification.git"
   },
   "keywords": [
     "discord",
@@ -43,7 +43,7 @@
   "author": "Joao Mantovani <joao@penseapp.com.br>",
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@ockpay"
+    "registry": "https://npm.pkg.github.com/@penseapp"
   },
   "files": [
     "dist/**/**"

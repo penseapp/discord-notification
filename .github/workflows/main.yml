@@ -2,31 +2,31 @@
 name: test
 on: [push, pull_request]
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
+  # test:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: [10.x, 12.x, 14.x]
 
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Git checkout
+  #       uses: actions/checkout@v2
 
-      - name: Configure Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+  #     - name: Configure Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
 
-      - name: Cache node_modules
-        id: cache-modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ matrix.node-version }}-${{ runner.OS }}-build-${{ hashFiles('package.json') }}
+  #     - name: Cache node_modules
+  #       id: cache-modules
+  #       uses: actions/cache@v2
+  #       with:
+  #         path: node_modules
+  #         key: ${{ matrix.node-version }}-${{ runner.OS }}-build-${{ hashFiles('package.json') }}
 
-      - name: Install npm in version ${{ matrix.node-version }}
-        if: steps.cache-modules.outputs.cache-hit != 'true'
-        run: npm install
+  #     - name: Install npm in version ${{ matrix.node-version }}
+  #       if: steps.cache-modules.outputs.cache-hit != 'true'
+  #       run: npm install
 
       # - name: Run test in version ${{ matrix.node-version }}
       #   run: npm run test:coverage
@@ -55,18 +55,19 @@ jobs:
 
   build:
     name: Build application
-    needs:
-      - test
+    # needs:
+    #   - test
     runs-on: ubuntu-latest
     steps:
-      - name: Discord notification - start build
-        uses: rjstone/discord-webhook-notify@v1.0.4
-        with:
-          severity: info
-          text: ${{github.repository}} - ${{github.workflow}}
-          details: '- **Pipeline:** https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}'
-          webhookUrl: ${{ secrets.DISCORD_CHANNEL_WEBHOOK }}
+      # - name: Discord notification - start build
+      #   uses: rjstone/discord-webhook-notify@v1.0.4
+      #   with:
+      #     severity: info
+      #     text: ${{github.repository}} - ${{github.workflow}}
+      #     details: '- **Pipeline:** https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}'
+      #     webhookUrl: ${{ secrets.DISCORD_CHANNEL_WEBHOOK }}
       - uses: actions/checkout@v2
+
       - uses: actions/setup-node@v1
         with:
           node-version: "12"
@@ -113,29 +114,29 @@ jobs:
         uses: mikeal/merge-release@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Notify discord
-        if: success()
-        uses: rjstone/discord-webhook-notify@v1.0.4
-        with:
-          severity: success
-          description: Deploy finished - new release deployed
-          details: |
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      # - name: Notify discord
+      #   if: success()
+      #   uses: rjstone/discord-webhook-notify@v1.0.4
+      #   with:
+      #     severity: success
+      #     description: Deploy finished - new release deployed
+      #     details: |
 
-            **- Tag name:** ${{ steps.release.outputs.tag_name }}
-            **- Release version:** ${{ steps.release.outputs.version }}
-          webhookUrl: ${{ secrets.DISCORD_CHANNEL_WEBHOOK }}
-      - name: Discord notification - Github generated release (error)
-        if: failure()
-        uses: rjstone/discord-webhook-notify@v1.0.4
-        with:
-          severity: error
-          description: Github generated release failed (But deployed was done)
-          webhookUrl: ${{ secrets.DISCORD_CHANNEL_WEBHOOK }}
-      - name: Discord notification - Github generated release (cancelled)
-        if: cancelled()
-        uses: rjstone/discord-webhook-notify@v1.0.4
-        with:
-          severity: warn
-          description: Github generated release cancelled (But deployed was done)
-          webhookUrl: ${{ secrets.DISCORD_CHANNEL_WEBHOOK }}
+      #       **- Tag name:** ${{ steps.release.outputs.tag_name }}
+      #       **- Release version:** ${{ steps.release.outputs.version }}
+      #     webhookUrl: ${{ secrets.DISCORD_CHANNEL_WEBHOOK }}
+      # - name: Discord notification - Github generated release (error)
+      #   if: failure()
+      #   uses: rjstone/discord-webhook-notify@v1.0.4
+      #   with:
+      #     severity: error
+      #     description: Github generated release failed (But deployed was done)
+      #     webhookUrl: ${{ secrets.DISCORD_CHANNEL_WEBHOOK }}
+      # - name: Discord notification - Github generated release (cancelled)
+      #   if: cancelled()
+      #   uses: rjstone/discord-webhook-notify@v1.0.4
+      #   with:
+      #     severity: warn
+      #     description: Github generated release cancelled (But deployed was done)
+      #     webhookUrl: ${{ secrets.DISCORD_CHANNEL_WEBHOOK }}
