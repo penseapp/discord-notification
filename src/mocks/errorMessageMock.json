@@ -1,0 +1,34 @@
+{
+  "content": "",
+  "username": "",
+  "avatar_url": "",
+  "file": "",
+	"embeds": [{
+		"author": {
+      "name": "MS-PAYMENT"
+    },
+		"description": "Pão de queijo e companhia",
+    "title": "Erro ao finalizar o pedido #666",
+		"color": "15859772",
+		"footer": {
+			"text": "Log: Error: Non-Error exception captured with keys: errors"
+		},
+		"fields": [
+      {
+        "name": "Nome do comprador",
+        "value": "Maiguel caio",
+        "inline": true
+      },
+      {
+        "name": "Telefone",
+        "value": "(11) 97354-9109",
+        "inline": true
+      },
+      {
+        "name": "Valor",
+        "value": "R$ 45,90",
+				"inline": false
+      }
+    ]
+  }]
+}
