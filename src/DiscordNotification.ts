@@ -1,46 +1,46 @@
 import { SuccessfulMessage, ErrorMessage, WarningMessage, InfoMessage, NoColorMessage } from "./MessageVariants";
 
 export class DiscordNotification {
-  microserviceName: string
-  webhook: string
+  name: string;
+  webhook: string;
 
-  constructor(microserviceName: string, webhook: string) {
-    this.microserviceName = microserviceName;
-    this.webhook = webhook
+  constructor(name: string, webhook: string) {
+    this.name = name;
+    this.webhook = webhook;
   }
 
   message() {
-    const message = new NoColorMessage(this.microserviceName, this.webhook)
-    message.embeds.name = this.microserviceName
+    const message = new NoColorMessage(this.name, this.webhook);
+    message.embeds.name = this.name;
 
-    return message
+    return message;
   }
 
   sucessfulMessage() {
-    const successfulMessage = new SuccessfulMessage(this.microserviceName, this.webhook)
-    successfulMessage.embeds.name = this.microserviceName
+    const successfulMessage = new SuccessfulMessage(this.name, this.webhook);
+    successfulMessage.embeds.name = this.name;
 
-    return successfulMessage
+    return successfulMessage;
   }
 
   errorMessage() {
-    const errorMessage = new ErrorMessage(this.microserviceName, this.webhook)
-    errorMessage.embeds.name = this.microserviceName
+    const errorMessage = new ErrorMessage(this.name, this.webhook);
+    errorMessage.embeds.name = this.name;
 
-    return errorMessage
+    return errorMessage;
   }
 
   warningMessage() {
-    const warningMessage = new WarningMessage(this.microserviceName, this.webhook)
-    warningMessage.embeds.name = this.microserviceName
+    const warningMessage = new WarningMessage(this.name, this.webhook);
+    warningMessage.embeds.name = this.name;
 
-    return warningMessage
+    return warningMessage;
   }
 
   infoMessage() {
-    const infoMessage = new InfoMessage(this.microserviceName, this.webhook)
-    infoMessage.embeds.name = this.microserviceName
+    const infoMessage = new InfoMessage(this.name, this.webhook);
+    infoMessage.embeds.name = this.name;
 
-    return infoMessage
+    return infoMessage;
   }
 }

@@ -6,3 +6,4 @@ export declare class Footer implements FooterInterface {
     constructor(text?: string);
 }
 export {};
+//# sourceMappingURL=Footer.d.ts.map

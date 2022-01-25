@@ -2,13 +2,13 @@ import { Field } from "./Field";
 import { Footer } from "./Footer";
 
 export interface EmbedInterface {
-  author?:      string | undefined;
+  author?: string | undefined;
   description?: string | undefined;
-  title?:       string | undefined;
-  color:       string | undefined;
-  name:         string | undefined;
-  footer?:      Footer | undefined;
-  fields?:      Field[];
+  title?: string | undefined;
+  color: string | undefined;
+  name: string | undefined;
+  footer?: Footer | undefined;
+  fields?: Field[];
 }
 
 export class Embed implements EmbedInterface {
@@ -21,7 +21,7 @@ export class Embed implements EmbedInterface {
   fields: Field[];
 
   constructor() {
-    this.footer = new Footer()
-    this.fields = []
+    this.footer = new Footer();
+    this.fields = [];
   }
 }

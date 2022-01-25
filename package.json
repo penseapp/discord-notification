@@ -1,13 +1,22 @@
 {
   "name": "@penseapp/discord-notification",
   "version": "0.0.1",
-  "description": "An abstract implementation to send notification on discord",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "homepage": "https://github.com/penseapp/discord-notification",
+  "description": "Easily send notifications to Discord on Node.js",
+  "author": "Joao Mantovani <joao@penseapp.com.br>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/penseapp/discord-notification.git"
+  },
+  "keywords": [
+    "discord",
+    "notification",
+    "node"
+  ],
   "bugs": {
     "url": "https://github.com/penseapp/discord-notification/issues"
   },
+  "homepage": "https://github.com/penseapp/discord-notification",
   "scripts": {
     "dev": "nodemon --watch \"src/\" --exec \"ts-node src/index.ts\" -e ts",
     "test": "jest --detectOpenHandles --forceExit",
@@ -17,33 +26,22 @@
     "build": "tsc"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "g": "^2.0.1",
-    "tsc": "^1.20150623.0"
+    "axios": "^0.25.0",
+    "g": "^2.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.18.0",
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.7",
-    "prettier": "^2.2.1",
-    "ts-jest": "^26.4.4",
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.32.0",
+    "jest": "^27.3.0",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.0.7",
     "ts-node": "^9.1.1",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^4.1.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/penseapp/discord-notification.git"
-  },
-  "keywords": [
-    "discord",
-    "notification"
-  ],
-  "author": "Joao Mantovani <joao@penseapp.com.br>",
-  "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "typescript": "^4.4.2"
   },
   "files": [
     "dist/**/**"

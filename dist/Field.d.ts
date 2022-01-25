@@ -9,3 +9,4 @@ export declare class Field implements FieldInterface {
     inline: boolean;
     constructor(name: string, value: string, inline?: boolean);
 }
+//# sourceMappingURL=Field.d.ts.map

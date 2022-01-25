@@ -45,7 +45,7 @@ var Field_1 = require("./Field");
 var Footer_1 = require("./Footer");
 var axios_1 = __importDefault(require("axios"));
 var Message = /** @class */ (function () {
-    function Message(microserviceName, webhook) {
+    function Message(name, webhook) {
         var _this = this;
         this.addContent = function (content) {
             _this.content = content;
@@ -60,7 +60,7 @@ var Message = /** @class */ (function () {
             return _this;
         };
         this.setColor = function (color) {
-            _this.embeds.color = color && color.toString() || undefined;
+            _this.embeds.color = (color && color.toString()) || undefined;
             return _this;
         };
         this.addFooter = function (footer) {
@@ -90,14 +90,14 @@ var Message = /** @class */ (function () {
                 content: _this.content,
                 username: _this.username,
                 allowed_mentions: {
-                    "parse": ["everyone"]
+                    parse: ["everyone"],
                 },
                 avatar_url: _this.avatar_url,
                 file: _this.file,
                 embeds: [
                     {
                         author: {
-                            name: _this.microserviceName,
+                            name: _this.name,
                         },
                         footer: _this.embeds.footer,
                         description: _this.embeds.description,
@@ -113,7 +113,8 @@ var Message = /** @class */ (function () {
         };
         this.sendMessage = function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                axios_1.default.post(this.webhook, this.buildPayload())
+                axios_1.default
+                    .post(this.webhook, this.buildPayload())
                     .then(function () { })
                     .catch(function () { });
                 return [2 /*return*/];
@@ -121,7 +122,7 @@ var Message = /** @class */ (function () {
         }); };
         this.embeds = new Embed_1.Embed();
         this.webhook = webhook;
-        this.microserviceName = microserviceName;
+        this.name = name;
     }
     return Message;
 }());
