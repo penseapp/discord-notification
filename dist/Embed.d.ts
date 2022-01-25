@@ -19,3 +19,4 @@ export declare class Embed implements EmbedInterface {
     fields: Field[];
     constructor();
 }
+//# sourceMappingURL=Embed.d.ts.map

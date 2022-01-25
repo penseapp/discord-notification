@@ -1,1 +1,1 @@
-{"version":3,"file":"Footer.js","sourceRoot":"","sources":["../src/Footer.ts"],"names":[],"mappings":";;;AAIA;IAGE,gBAAY,IAAa;QACvB,IAAI,CAAC,IAAI,GAAG,IAAI,CAAA;IAClB,CAAC;IACH,aAAC;AAAD,CAAC,AAND,IAMC;AANY,wBAAM"}
+{"version":3,"file":"Footer.js","sourceRoot":"","sources":["../src/Footer.ts"],"names":[],"mappings":";;;AAIA;IAGE,gBAAY,IAAa;QACvB,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;IACnB,CAAC;IACH,aAAC;AAAD,CAAC,AAND,IAMC;AANY,wBAAM"}

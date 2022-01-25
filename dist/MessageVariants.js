@@ -7,6 +7,8 @@ var __extends = (this && this.__extends) || (function () {
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -22,8 +24,8 @@ var ERROR_COLOR = 16729156; // #ff4444
 var NO_COLOR = undefined; // #ff4444
 var NoColorMessage = /** @class */ (function (_super) {
     __extends(NoColorMessage, _super);
-    function NoColorMessage(microserviceName, webhook) {
-        var _this = _super.call(this, microserviceName, webhook) || this;
+    function NoColorMessage(name, webhook) {
+        var _this = _super.call(this, name, webhook) || this;
         _this.setColor(NO_COLOR);
         return _this;
     }
@@ -32,8 +34,8 @@ var NoColorMessage = /** @class */ (function (_super) {
 exports.NoColorMessage = NoColorMessage;
 var SuccessfulMessage = /** @class */ (function (_super) {
     __extends(SuccessfulMessage, _super);
-    function SuccessfulMessage(microserviceName, webhook) {
-        var _this = _super.call(this, microserviceName, webhook) || this;
+    function SuccessfulMessage(name, webhook) {
+        var _this = _super.call(this, name, webhook) || this;
         _this.setColor(SUCCESSFUL_COLOR);
         return _this;
     }
@@ -42,8 +44,8 @@ var SuccessfulMessage = /** @class */ (function (_super) {
 exports.SuccessfulMessage = SuccessfulMessage;
 var WarningMessage = /** @class */ (function (_super) {
     __extends(WarningMessage, _super);
-    function WarningMessage(microserviceName, webhook) {
-        var _this = _super.call(this, microserviceName, webhook) || this;
+    function WarningMessage(name, webhook) {
+        var _this = _super.call(this, name, webhook) || this;
         _this.setColor(WARNING_COLOR);
         return _this;
     }
@@ -52,8 +54,8 @@ var WarningMessage = /** @class */ (function (_super) {
 exports.WarningMessage = WarningMessage;
 var InfoMessage = /** @class */ (function (_super) {
     __extends(InfoMessage, _super);
-    function InfoMessage(microserviceName, webhook) {
-        var _this = _super.call(this, microserviceName, webhook) || this;
+    function InfoMessage(name, webhook) {
+        var _this = _super.call(this, name, webhook) || this;
         _this.setColor(INFO_COLOR);
         return _this;
     }
@@ -62,8 +64,8 @@ var InfoMessage = /** @class */ (function (_super) {
 exports.InfoMessage = InfoMessage;
 var ErrorMessage = /** @class */ (function (_super) {
     __extends(ErrorMessage, _super);
-    function ErrorMessage(microserviceName, webhook) {
-        var _this = _super.call(this, microserviceName, webhook) || this;
+    function ErrorMessage(name, webhook) {
+        var _this = _super.call(this, name, webhook) || this;
         _this.setColor(ERROR_COLOR);
         return _this;
     }

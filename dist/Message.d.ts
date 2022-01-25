@@ -15,8 +15,8 @@ export declare abstract class Message implements MessageInterface {
     file?: string | undefined;
     embeds: Embed;
     webhook: string;
-    microserviceName: string;
-    constructor(microserviceName: string, webhook: string);
+    name: string;
+    constructor(name: string, webhook: string);
     addContent: (content: string) => this;
     addUsername: (username: string) => this;
     addAvatarURl: (avatar_url: string) => this;
@@ -52,3 +52,4 @@ export declare abstract class Message implements MessageInterface {
     sendMessage: () => Promise<void>;
 }
 export {};
+//# sourceMappingURL=Message.d.ts.map
