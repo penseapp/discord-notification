@@ -1,6 +1,6 @@
 export interface FieldInterface {
-  name:   string;
-  value:  string;
+  name: string;
+  value: string;
   inline?: boolean | undefined;
 }
 
@@ -10,8 +10,8 @@ export class Field implements FieldInterface {
   inline: boolean;
 
   constructor(name: string, value: string, inline?: boolean) {
-    this.name = name
-    this.value = value
-    this.inline = inline || true
+    this.name = name;
+    this.value = value;
+    this.inline = inline || true;
   }
 }

@@ -1,62 +1,79 @@
-
 name: test
 on: [push, pull_request]
 jobs:
-  # test:
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       node-version: [10.x, 12.x, 14.x]
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+        redis-version: [4, 5, 6]
+    services:
+      postgresql:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: root
+        ports:
+          - 5432:5432
 
-  #   steps:
-  #     - name: Git checkout
-  #       uses: actions/checkout@v2
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
 
-  #     - name: Configure Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
+      - name: Setup DynamoDB Local
+        uses: rrainn/dynamodb-action@v2.0.0
+        with:
+          port: 8000
+          cors: "*"
 
-  #     - name: Cache node_modules
-  #       id: cache-modules
-  #       uses: actions/cache@v2
-  #       with:
-  #         path: node_modules
-  #         key: ${{ matrix.node-version }}-${{ runner.OS }}-build-${{ hashFiles('package.json') }}
+      - name: Configure Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-  #     - name: Install npm in version ${{ matrix.node-version }}
-  #       if: steps.cache-modules.outputs.cache-hit != 'true'
-  #       run: npm install
+      - name: Start Redis
+        uses: supercharge/redis-github-action@1.1.0
+        with:
+          redis-version: ${{ matrix.redis-version }}
 
-      # - name: Run test in version ${{ matrix.node-version }}
-      #   run: npm run test:coverage
-      #   env:
-      #     CI: true
+      - name: Sets up a Memcached server
+        uses: niden/actions-memcached@v7
 
-      # - name: upload coverage artifact v${{ matrix.node-version }}
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: coveragev-${{ matrix.node-version }}
-      #     path: coverage/lcov.info
+      - name: Cache node_modules
+        id: cache-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ matrix.node-version }}-${{ runner.OS }}-build-${{ hashFiles('package.json') }}
 
-  # coverage:
-  #   needs: test
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/download-artifact@v2
-  #       with:
-  #         name: coveragev-12.x
-  #         path: coverage
-  #     - name: Generate coverage in coverall
-  #       uses: coverallsapp/github-action@master
-  #       with:
-  #         github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install npm in version ${{ matrix.node-version }}
+        if: steps.cache-modules.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Run test in version ${{ matrix.node-version }}
+        run: npm run test:coverage
+        env:
+          CI: true
+
+      - name: upload coverage artifact v${
+
+  coverage:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: coveragev-12.x
+          path: coverage
+      - name: Generate coverage in coverall
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     name: Build application
-    # needs:
-    #   - test
+    needs:
+      - test
     runs-on: ubuntu-latest
     steps:
       # - name: Discord notification - start build
