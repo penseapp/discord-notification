@@ -27,9 +27,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "g": "^2.0.1",
-    "tsc": "^1.20150623.0",
-    "user": "^0.0.0"
+    "g": "^2.0.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",
