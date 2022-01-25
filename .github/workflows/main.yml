@@ -5,8 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
-        redis-version: [4, 5, 6]
+        node-version: [12.x, 14.x]
     services:
       postgresql:
         image: postgres
@@ -19,24 +18,10 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v2
 
-      - name: Setup DynamoDB Local
-        uses: rrainn/dynamodb-action@v2.0.0
-        with:
-          port: 8000
-          cors: "*"
-
       - name: Configure Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Start Redis
-        uses: supercharge/redis-github-action@1.1.0
-        with:
-          redis-version: ${{ matrix.redis-version }}
-
-      - name: Sets up a Memcached server
-        uses: niden/actions-memcached@v7
 
       - name: Cache node_modules
         id: cache-modules
