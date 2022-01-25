@@ -54,7 +54,11 @@ jobs:
         env:
           CI: true
 
-      - name: upload coverage artifact v${
+      - name: upload coverage artifact v${{ matrix.node-version }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: coveragev-${{ matrix.node-version }}
+          path: coverage/lcov.info
 
   coverage:
     needs: test
