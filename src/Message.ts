@@ -75,12 +75,6 @@ export abstract class Message implements MessageInterface {
   addField = (field: FieldInterface) => {
     const { name, value, inline } = field;
     const fieldObj = new Field(name, value, inline);
-    console.table({
-      'name': name,
-      'value': value,
-      'inline': inline,
-      'fieldObj': fieldObj
-    })
 
     this.embeds.fields.push(fieldObj);
     return this;
