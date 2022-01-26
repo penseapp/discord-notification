@@ -15,18 +15,18 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ErrorMessage = exports.InfoMessage = exports.WarningMessage = exports.SuccessfulMessage = exports.NoColorMessage = void 0;
+exports.ErrorMessage = exports.InfoMessage = exports.WarningMessage = exports.SuccessfulMessage = exports.NoColorMessage = exports.NO_COLOR = exports.ERROR_COLOR = exports.INFO_COLOR = exports.WARNING_COLOR = exports.SUCCESSFUL_COLOR = void 0;
 var Message_1 = require("./Message");
-var SUCCESSFUL_COLOR = 51281; // #00C851
-var WARNING_COLOR = 16746496; // #FF8800
-var INFO_COLOR = 3388901; // #33b5e5
-var ERROR_COLOR = 16729156; // #ff4444
-var NO_COLOR = undefined; // #ff4444
+exports.SUCCESSFUL_COLOR = 51281; // #00C851
+exports.WARNING_COLOR = 16746496; // #FF8800
+exports.INFO_COLOR = 3388901; // #33b5e5
+exports.ERROR_COLOR = 16729156; // #ff4444
+exports.NO_COLOR = undefined; // #ff4444
 var NoColorMessage = /** @class */ (function (_super) {
     __extends(NoColorMessage, _super);
     function NoColorMessage(name, webhook) {
         var _this = _super.call(this, name, webhook) || this;
-        _this.setColor(NO_COLOR);
+        _this.setColor(exports.NO_COLOR);
         return _this;
     }
     return NoColorMessage;
@@ -36,7 +36,7 @@ var SuccessfulMessage = /** @class */ (function (_super) {
     __extends(SuccessfulMessage, _super);
     function SuccessfulMessage(name, webhook) {
         var _this = _super.call(this, name, webhook) || this;
-        _this.setColor(SUCCESSFUL_COLOR);
+        _this.setColor(exports.SUCCESSFUL_COLOR);
         return _this;
     }
     return SuccessfulMessage;
@@ -46,7 +46,7 @@ var WarningMessage = /** @class */ (function (_super) {
     __extends(WarningMessage, _super);
     function WarningMessage(name, webhook) {
         var _this = _super.call(this, name, webhook) || this;
-        _this.setColor(WARNING_COLOR);
+        _this.setColor(exports.WARNING_COLOR);
         return _this;
     }
     return WarningMessage;
@@ -56,7 +56,7 @@ var InfoMessage = /** @class */ (function (_super) {
     __extends(InfoMessage, _super);
     function InfoMessage(name, webhook) {
         var _this = _super.call(this, name, webhook) || this;
-        _this.setColor(INFO_COLOR);
+        _this.setColor(exports.INFO_COLOR);
         return _this;
     }
     return InfoMessage;
@@ -66,7 +66,7 @@ var ErrorMessage = /** @class */ (function (_super) {
     __extends(ErrorMessage, _super);
     function ErrorMessage(name, webhook) {
         var _this = _super.call(this, name, webhook) || this;
-        _this.setColor(ERROR_COLOR);
+        _this.setColor(exports.ERROR_COLOR);
         return _this;
     }
     return ErrorMessage;
