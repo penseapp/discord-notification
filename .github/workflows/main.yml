@@ -6,14 +6,6 @@ jobs:
     strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x]
-    services:
-      postgresql:
-        image: postgres
-        env:
-          POSTGRES_PASSWORD: root
-        ports:
-          - 5432:5432
-
     steps:
       - name: Git checkout
         uses: actions/checkout@v2
@@ -96,7 +88,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist-folder
-          path: .
+          path: dist/**/*
           if-no-files-found: error
 
   publish:
