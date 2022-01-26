@@ -22,7 +22,7 @@ npm i @penseapp/discord-notification
 ```
 or
 ```sh
-yarn @penseapp/discord-notification
+yarn add @penseapp/discord-notification
 ```
 ## How to use
 
@@ -50,6 +50,11 @@ discordNotification
   .addFooter('My footer') // Small text at the end of discord notification
   .sendMessage()
 ```
+
+The output on discord will be:
+
+![image](https://user-images.githubusercontent.com/5152197/151089826-e50f6174-8152-46c9-b2ae-d1b230f7e47d.png)
+
 
 ### messageTypes
 There are 4 messages
