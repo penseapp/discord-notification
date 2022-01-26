@@ -90,6 +90,7 @@ jobs:
         run: npm run build
 
       - name: "Automated Version Bump"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: "phips28/gh-action-bump-version@master"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
