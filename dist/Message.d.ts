@@ -1,6 +1,5 @@
 import { Embed } from "./Embed";
 import { FieldInterface } from "./Field";
-import { Footer } from "./Footer";
 interface MessageInterface {
     content?: string | undefined;
     username?: string | undefined;
@@ -22,33 +21,16 @@ export declare abstract class Message implements MessageInterface {
     addAvatarURl: (avatar_url: string) => this;
     setColor: (color: number | undefined) => this;
     addFooter: (footer: string) => this;
-    addAuthor: (author: string) => this;
+    /**
+     * TODO: implements author
+     *
+     * @param author
+     * @returns
+     */
     addDescription: (description: string) => this;
     addTitle: (title: string) => this;
     addField: (field: FieldInterface) => this;
-    buildPayload: () => {
-        content: string | undefined;
-        username: string | undefined;
-        allowed_mentions: {
-            parse: string[];
-        };
-        avatar_url: string | undefined;
-        file: string | undefined;
-        embeds: {
-            author: {
-                name: string;
-            };
-            footer: Footer | undefined;
-            description: string | undefined;
-            title: string | undefined;
-            color: string | undefined;
-            fields: {
-                name: string;
-                value: string;
-                inline: boolean;
-            }[];
-        }[];
-    };
+    buildPayload: () => any;
     sendMessage: () => Promise<void>;
 }
 export {};

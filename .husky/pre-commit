@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+green=`tput setaf 2`
+reset=`tput sgr0`
+
+echo "${green}Checking code lint before commit... Please wait a while${reset}"
+
+npm run format && npm run lint

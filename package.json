@@ -1,6 +1,6 @@
 {
   "name": "@penseapp/discord-notification",
-  "version": "0.0.1",
+  "version": "0.0.10",
   "description": "Easily send notifications to Discord on Node.js",
   "author": "Joao Mantovani <joao@penseapp.com.br>",
   "license": "MIT",
@@ -27,18 +27,22 @@
     "test:coverage": "jest --detectOpenHandles --collect-coverage",
     "format": "prettier --config .prettierrc.json --ignore-unknown --write \"src/**/*.ts\" \"tests/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "husky install"
   },
   "dependencies": {
     "axios": "^0.25.0",
     "g": "^2.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
     "axios-mock-adapter": "^1.20.0",
     "eslint": "^7.32.0",
+    "husky": "^7.0.4",
     "jest": "^27.3.0",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",

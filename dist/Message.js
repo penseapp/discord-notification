@@ -67,10 +67,16 @@ var Message = /** @class */ (function () {
             _this.embeds.footer = new Footer_1.Footer(footer);
             return _this;
         };
-        this.addAuthor = function (author) {
-            _this.embeds.author = author;
-            return _this;
-        };
+        /**
+         * TODO: implements author
+         *
+         * @param author
+         * @returns
+         */
+        // addAuthor = (/* author: string */) => {
+        //   // this.embeds.author = author;
+        //   return this;
+        // };
         this.addDescription = function (description) {
             _this.embeds.description = description;
             return _this;
@@ -86,7 +92,7 @@ var Message = /** @class */ (function () {
             return _this;
         };
         this.buildPayload = function () {
-            return {
+            var payload = {
                 content: _this.content,
                 username: _this.username,
                 allowed_mentions: {
@@ -110,13 +116,12 @@ var Message = /** @class */ (function () {
                     },
                 ],
             };
+            // remove all undefined values recursive from payload and return
+            return JSON.parse(JSON.stringify(payload));
         };
         this.sendMessage = function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                axios_1.default
-                    .post(this.webhook, this.buildPayload())
-                    .then(function () { })
-                    .catch(function () { });
+                axios_1.default.post(this.webhook, this.buildPayload());
                 return [2 /*return*/];
             });
         }); };

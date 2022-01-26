@@ -1,4 +1,4 @@
-name: test
+name: main
 
 on: [push, pull_request]
 
@@ -89,6 +89,14 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: "Automated Version Bump"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: "phips28/gh-action-bump-version@master"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          skip-tag: "true"
+
       - name: Generate dist artifact v${{ matrix.node-version }}
         uses: actions/upload-artifact@v2
         with:
@@ -104,16 +112,19 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
+
       - uses: actions/download-artifact@v2
         with:
           name: dist-folder
           path: .
+
       - id: release
         name: Release tag
         uses: rymndhng/release-on-push-action@master
         with:
           bump_version_scheme: patch
-      - name: Publish
+
+      - name: Publish on NPM
         uses: mikeal/merge-release@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
