@@ -4,7 +4,9 @@
 <div align="center">
 
 ![npm](https://img.shields.io/npm/dw/@penseapp/discord-notification)<br>
+  
 [![npm version](https://badge.fury.io/js/@penseapp%2Fdiscord-notification.svg)](https://badge.fury.io/js/@penseapp%2Fdiscord-notification)
+  
 ![test](https://github.com/penseapp/discord-notification/workflows/test/badge.svg?branch=master)
 ![GitHub Workflow Status (event)](https://img.shields.io/github/workflow/status/penseapp/discord-notification/test)
 [![Coverage Status](https://coveralls.io/repos/github/penseapp/discord-notification/badge.svg?branch=master)](https://coveralls.io/github/penseapp/discord-notification?branch=master)
