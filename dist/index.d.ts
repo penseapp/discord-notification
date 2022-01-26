@@ -1,1 +1,0 @@
-export { DiscordNotification } from './DiscordNotification';
