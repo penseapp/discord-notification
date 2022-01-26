@@ -7,7 +7,7 @@ npm i @penseapp/discord-notification
 ```
 or
 ```sh
-yarn @penseapp/discord-notification
+yarn add @penseapp/discord-notification
 ```
 ## How to use
 
