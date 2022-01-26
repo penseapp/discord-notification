@@ -1,5 +1,20 @@
 # Discord notifications
 
+
+<div align="center">
+
+![npm](https://img.shields.io/npm/dt/discord-notification?style=for-the-badge)<br>
+[![npm version](https://badge.fury.io/js/discord-notification.svg)](https://badge.fury.io/js/discord-notification)
+![test](https://github.com/penseapp/discord-notification/workflows/test/badge.svg?branch=master)
+![GitHub Workflow Status (event)](https://img.shields.io/github/workflow/status/penseapp/discord-notification/test)
+[![Coverage Status](https://coveralls.io/repos/github/penseapp/discord-notification/badge.svg?branch=master)](https://coveralls.io/github/penseapp/discord-notification?branch=master)
+[![License Status](https://img.shields.io/github/license/penseapp/discord-notification)](https://img.shields.io/github/license/penseapp/discord-notification)
+[![Issues Status](https://img.shields.io/github/issues/penseapp/discord-notification)](https://img.shields.io/github/issues/penseapp/discord-notification)
+[![Tag Status](https://img.shields.io/github/v/tag/penseapp/discord-notification)](https://img.shields.io/github/v/tag/penseapp/discord-notification)
+[![Languages Status](https://img.shields.io/github/languages/count/penseapp/discord-notification)](https://img.shields.io/github/languages/count/penseapp/discord-notification)
+[![Repo Size Status](https://img.shields.io/github/repo-size/penseapp/discord-notification)](https://img.shields.io/github/repo-size/penseapp/discord-notification)
+</div>
+
 ## Install steps
 
 ```sh
