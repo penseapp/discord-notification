@@ -2,17 +2,24 @@
 
 ## Install steps
 
+```sh
+npm i @penseapp/discord-notification
+```
+or
+```sh
+yarn @penseapp/discord-notification
+```
 ## How to use
 
-On your config/init/index file import the package
+Import the package:
 ```js
-import { DiscordNotification } from '@package/bla'
+import { DiscordNotification } from '@penseapp/discord-notification'
 ```
 
-Initialize the settings
+Instantiate a new class of DiscordNotification passing the name and discord webhook 
 ```js
 // Name of the microservice / webhook of discord
-export const discordNotification = new DiscordNotification('MS-PAYMENT', 'https://www.webhook.discord')
+export const discordNotification = new DiscordNotification('my-name', 'https://discordapp.com/api/webhooks/qNbqLQDB5mD7Rxr6')
 ```
 
 Call discordNotification obj, see the example above
@@ -20,12 +27,12 @@ Call discordNotification obj, see the example above
 // Get the variable in others files
 discordNotification
   .sucessfulMessage()
-  .addTitle('Novo pedido #666')
-  .addDescription('Blablablabla')
-  .addField({name: 'Nome', value: 'Higorokun', inline: false }) //breakline
-  .addField({name: 'Valor', value: 'R$ 10'})
-  .addField({ name: 'Estabelecimento', value: 'Pao de queijo e cia' })
-  .addFooter('bla bla bla') // Small text at the end of discord notification
+  .addTitle('My title')
+  .addDescription('My description')
+  .addField({name: 'Field 1', value: 'Content #1', inline: false }) //breakline
+  .addField({name: 'Field 2', value: 'Content #2' }) 
+  .addField({name: 'Field 3', value: 'Content #3' }) 
+  .addFooter('My footer') // Small text at the end of discord notification
   .sendMessage()
 ```
 
@@ -46,15 +53,16 @@ discordNotification.warningMessage() // Shows orange message
 ```js
 import { DiscordNotification } from "./DiscordNotification";
 
-export const discordNotification = new DiscordNotification('MS-TEST', 'https://discordapp.com/api/webhooks/717408724918075412/FdZJOlH-T1yDre9bo6ar0UCpATo-9-YqomiID1I0HiXxG4tF6brZqNbqLQDB5mD7Rxr6')
+export const discordNotification = new DiscordNotification('my-name', 'https://discordapp.com/api/webhooks/qNbqLQDB5mD7Rxr6')
   
 discordNotification
   .sucessfulMessage()
-  .addTitle('Novo pedido #666')
-  .addDescription('Blablablabla')
-  .addField({name: 'Nome', value: 'Higorokun'})
-  .addField({name: 'Valor', value: 'R$ 10'})
-  .addField({ name: 'Estabelecimento', value: 'Pao de queijo e cia' })
+  .addTitle('My title')
+  .addDescription('My description')
+  .addField({name: 'Field 1', value: 'Content #1', inline: false }) //breakline
+  .addField({name: 'Field 2', value: 'Content #2' }) 
+  .addField({name: 'Field 3', value: 'Content #3' }) 
+  .addFooter('My footer') // Small text at the end of discord notification
   .sendMessage()
 ```
 
@@ -130,3 +138,15 @@ discordNotification
   .addTitle('Testing no color')
   .sendMessage()
 ```
+
+### Discord webhook
+
+```
+Open Discord -> select the channel -> Click on configuration -> Integrations -> View webhooks -> New webhook
+```
+
+Create a new webhook called `Discord notification` and add on Github secrets with a name of `DISCORD_CHANNEL_WEBHOOK`, like the GIF bellow:
+
+![Peek 2021-06-02 22-21](https://user-images.githubusercontent.com/5152197/121472497-aa56ec00-c997-11eb-83cb-b9f03094e5dd.gif)
+
+Now, you will receive the notifications on the desired discord channel.
