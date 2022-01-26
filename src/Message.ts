@@ -75,6 +75,12 @@ export abstract class Message implements MessageInterface {
   addField = (field: FieldInterface) => {
     const { name, value, inline } = field;
     const fieldObj = new Field(name, value, inline);
+    console.table({
+      'name': name,
+      'value': value,
+      'inline': inline,
+      'fieldObj': fieldObj
+    })
 
     this.embeds.fields.push(fieldObj);
     return this;
@@ -110,9 +116,6 @@ export abstract class Message implements MessageInterface {
   };
 
   sendMessage = async () => {
-    axios
-      .post(this.webhook, this.buildPayload())
-      .then(() => {})
-      .catch(() => {});
+    axios.post(this.webhook, this.buildPayload())
   };
 }

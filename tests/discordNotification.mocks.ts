@@ -14,11 +14,6 @@ const discord = new DiscordNotification(NAME, WEBHOOK);
 // all this tests must be exec in docker context
 export const scenarios: DiscordNotificationDetailedTestConfig[] = [
   {
-    scenarioName: "should show only a success message",
-    object: discord.sucessfulMessage().buildPayload(),
-    expected: discord.sucessfulMessage().buildPayload(),
-  },
-  {
     scenarioName: "should show a success message",
     object: discord.sucessfulMessage().buildPayload(),
     expected: {
@@ -176,7 +171,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             {
               "name": "Field 1",
               "value": "Content #1",
-              "inline": true
+              "inline": false
             }
           ]
         }
@@ -297,6 +292,9 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
     .sucessfulMessage()
     .addTitle('My title')
     .addDescription('My description')
+    .addUsername('My username')
+    .addAvatarURl('https://my-avatar-url')
+    .addContent('My content')
     .addField({name: 'Field 1', value: 'Content #1', inline: false }) //breakline
     .addField({name: 'Field 2', value: 'Content #2' })
     .addField({name: 'Field 3', value: 'Content #3' })
@@ -308,22 +306,25 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
           "everyone"
         ]
       },
+      "username": "My username",
+      "content": "My content",
+      "avatar_url": "https://my-avatar-url",
       "embeds": [
         {
+          "title": "My title",
+          "description": "My description",
           "author": {
             "name": NAME
           },
           "footer": {
             "text": "My footer"
           },
-          "description": "My description",
-          "title": "My title",
           "color": `${SUCCESSFUL_COLOR}`,
           "fields": [
             {
               "name": "Field 1",
               "value": "Content #1",
-              "inline": true
+              "inline": false
             },
             {
               "name": "Field 2",
@@ -340,4 +341,109 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
       ]
     }
   },
+  {
+    scenarioName: 'should set inline true when inline field not specified',
+    object: discord
+    .message()
+    .addField({name: 'Field 1', value: 'Content #1' })
+    .buildPayload(),
+    expected: {
+      "allowed_mentions": {
+        "parse": [
+          "everyone"
+        ]
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": NAME
+          },
+          "footer": {},
+          "fields": [
+            {
+              "name": "Field 1",
+              "value": "Content #1",
+              "inline": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    scenarioName: 'should set inline false when inline field is false',
+    object: discord
+    .message()
+    .addField({name: 'Field 1', value: 'Content #1', inline: false })
+    .buildPayload(),
+    expected: {
+      "allowed_mentions": {
+        "parse": [
+          "everyone"
+        ]
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": NAME
+          },
+          "footer": {},
+          "fields": [
+            {
+              "name": "Field 1",
+              "value": "Content #1",
+              "inline": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    scenarioName: 'should set inline false when inline field is false using multiple fields',
+    object: discord
+    .message()
+    .addField({name: 'Field 1', value: 'Content #1', inline: false })
+    .addField({name: 'Field 2', value: 'Content #2' })
+    .addField({name: 'Field 3', value: 'Content #3', inline: false })
+    .addField({name: 'Field 4', value: 'Content #4', inline: true })
+    .buildPayload(),
+    expected: {
+      "allowed_mentions": {
+        "parse": [
+          "everyone"
+        ]
+      },
+      "embeds": [
+        {
+          "author": {
+            "name": NAME
+          },
+          "footer": {},
+          "fields": [
+            {
+              "name": "Field 1",
+              "value": "Content #1",
+              "inline": false
+            },
+            {
+              "name": "Field 2",
+              "value": "Content #2",
+              "inline": true
+            },
+            {
+              "name": "Field 3",
+              "value": "Content #3",
+              "inline": false
+            },
+            {
+              "name": "Field 4",
+              "value": "Content #4",
+              "inline": true
+            }
+          ]
+        }
+      ]
+    }
+  }
 ];

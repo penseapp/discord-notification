@@ -10,8 +10,10 @@ export class Field implements FieldInterface {
   inline: boolean;
 
   constructor(name: string, value: string, inline?: boolean) {
+    const isInlineUndefined = inline === undefined || inline === null;
+
     this.name = name;
     this.value = value;
-    this.inline = inline || true;
+    this.inline = isInlineUndefined ? true : inline;
   }
 }
