@@ -1,10 +1,10 @@
 import { Message } from "./Message";
 
-const SUCCESSFUL_COLOR = 51281; // #00C851
-const WARNING_COLOR = 16746496; // #FF8800
-const INFO_COLOR = 3388901; // #33b5e5
-const ERROR_COLOR = 16729156; // #ff4444
-const NO_COLOR = undefined; // #ff4444
+export const SUCCESSFUL_COLOR = 51281; // #00C851
+export const WARNING_COLOR = 16746496; // #FF8800
+export const INFO_COLOR = 3388901; // #33b5e5
+export const ERROR_COLOR = 16729156; // #ff4444
+export const NO_COLOR = undefined; // #ff4444
 
 export class NoColorMessage extends Message {
   constructor(name: string, webhook: string) {

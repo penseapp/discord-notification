@@ -51,10 +51,16 @@ export abstract class Message implements MessageInterface {
     return this;
   };
 
-  addAuthor = (author: string) => {
-    this.embeds.author = author;
-    return this;
-  };
+  /**
+   * TODO: implements author
+   *
+   * @param author
+   * @returns
+   */
+  // addAuthor = (/* author: string */) => {
+  //   // this.embeds.author = author;
+  //   return this;
+  // };
 
   addDescription = (description: string) => {
     this.embeds.description = description;
@@ -75,7 +81,7 @@ export abstract class Message implements MessageInterface {
   };
 
   buildPayload = () => {
-    return {
+    const payload = {
       content: this.content,
       username: this.username,
       allowed_mentions: {
@@ -98,6 +104,9 @@ export abstract class Message implements MessageInterface {
         },
       ],
     };
+
+    // remove all undefined values recursive from payload and return
+    return JSON.parse(JSON.stringify(payload));
   };
 
   sendMessage = async () => {
