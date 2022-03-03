@@ -5,6 +5,7 @@
   "author": "Joao Mantovani <joao@penseapp.com.br>",
   "license": "MIT",
   "private": false,
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/penseapp/discord-notification.git"
