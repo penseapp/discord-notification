@@ -116,7 +116,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dist-folder
-          path: .
+          path: dist
 
       - id: release
         name: Release tag
