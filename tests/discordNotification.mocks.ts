@@ -26,6 +26,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           color: `${SUCCESSFUL_COLOR}`,
           fields: [],
         },
@@ -45,6 +46,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           color: `${ERROR_COLOR}`,
           fields: [],
         },
@@ -64,6 +66,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           color: `${INFO_COLOR}`,
           fields: [],
         },
@@ -83,6 +86,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           color: `${WARNING_COLOR}`,
           fields: [],
         },
@@ -102,6 +106,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           title: "My title",
           color: `${SUCCESSFUL_COLOR}`,
           fields: [],
@@ -122,6 +127,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           description: "My description",
           title: "My title",
           color: `${SUCCESSFUL_COLOR}`,
@@ -143,6 +149,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           fields: [
             {
               name: "Field 1",
@@ -168,6 +175,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           fields: [],
         },
       ],
@@ -187,6 +195,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           fields: [],
         },
       ],
@@ -206,6 +215,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           fields: [],
         },
       ],
@@ -224,6 +234,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           fields: [
             {
               name: "Field 1",
@@ -252,6 +263,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
       .addField({ name: "Field 1", value: "Content #1", inline: false }) //breakline
       .addField({ name: "Field 2", value: "Content #2" })
       .addField({ name: "Field 3", value: "Content #3" })
+      .addImage("https://my-image-url")
       .addFooter("My footer") // Small text at the end of discord notification
       .buildPayload(),
     expected: {
@@ -272,6 +284,9 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             text: "My footer",
           },
           color: `${SUCCESSFUL_COLOR}`,
+          image: {
+            url: "https://my-image-url",
+          },
           fields: [
             {
               name: "Field 1",
@@ -306,6 +321,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           fields: [
             {
               name: "Field 1",
@@ -330,6 +346,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           fields: [
             {
               name: "Field 1",
@@ -360,6 +377,7 @@ export const scenarios: DiscordNotificationDetailedTestConfig[] = [
             name: NAME,
           },
           footer: {},
+          image: {},
           fields: [
             {
               name: "Field 1",
