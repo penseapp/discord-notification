@@ -36,6 +36,11 @@ export abstract class Message implements MessageInterface {
     return this;
   };
 
+  addFile = (file: string) => {
+    this.file = file;
+    return this;
+  };
+
   addAvatarURl = (avatar_url: string) => {
     this.avatar_url = avatar_url;
     return this;
@@ -110,6 +115,10 @@ export abstract class Message implements MessageInterface {
   };
 
   sendMessage = async () => {
-    axios.post(this.webhook, this.buildPayload());
+    try {
+      axios.post(this.webhook, this.buildPayload());
+    } catch (error) {
+      // TODO: handle error
+    }
   };
 }
