@@ -169,3 +169,16 @@ Create a new webhook called `Discord notification` and add on Github secrets wit
 ![Peek 2021-06-02 22-21](https://user-images.githubusercontent.com/5152197/121472497-aa56ec00-c997-11eb-83cb-b9f03094e5dd.gif)
 
 Now, you will receive the notifications on the desired discord channel.
+
+## Information
+
+The tests does not pass on node version 10.*
+Use at your own risk.
+
+The versions:
+- 12.x
+- 14.x
+- 16.x
+- 18.x
+
+Are working.
