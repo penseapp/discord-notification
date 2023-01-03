@@ -1,6 +1,6 @@
 {
   "name": "@penseapp/discord-notification",
-  "version": "2.0.7",
+  "version": "2.1.0",
   "description": "Easily send notifications to Discord on Node.js",
   "author": "Joao Mantovani <joao@penseapp.com.br>",
   "license": "MIT",
