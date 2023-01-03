@@ -15,7 +15,7 @@ export abstract class Message implements MessageInterface {
   content?: string | undefined;
   username?: string | undefined;
   avatar_url?: string | undefined;
-  file?: string | undefined;
+  image?: string | undefined;
   embeds: Embed;
   webhook: string;
   name: string;
@@ -36,8 +36,8 @@ export abstract class Message implements MessageInterface {
     return this;
   };
 
-  addFile = (file: string) => {
-    this.file = file;
+  addImage = (image: string) => {
+    this.image = image;
     return this;
   };
 
@@ -93,7 +93,6 @@ export abstract class Message implements MessageInterface {
         parse: ["everyone"],
       },
       avatar_url: this.avatar_url,
-      file: this.file,
       embeds: [
         {
           author: {
@@ -103,6 +102,9 @@ export abstract class Message implements MessageInterface {
           description: this.embeds.description,
           title: this.embeds.title,
           color: this.embeds.color,
+          image: {
+            url: this.image,
+          },
           fields: this.embeds.fields.map(({ name, value, inline }) => {
             return { name, value, inline };
           }),
